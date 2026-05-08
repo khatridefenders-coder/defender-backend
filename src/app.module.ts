@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bullmq';
 import { APP_GUARD } from '@nestjs/core';
+import { HealthController } from './health.controller';
 import { AuthModule } from './auth/auth.module';
 import { VotersModule } from './voters/voters.module';
 import { AdminModule } from './admin/admin.module';
@@ -17,6 +18,7 @@ import { AddSheetRowIndex1777800000001 } from './database/migrations/17778000000
 import { AddFCardNo1777800000002 } from './database/migrations/1777800000002-AddFCardNo';
 
 @Module({
+  controllers: [HealthController],
   imports: [
     // Loads .env and makes ConfigService available globally — must be first
     ConfigModule.forRoot({ isGlobal: true }),
