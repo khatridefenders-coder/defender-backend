@@ -47,6 +47,9 @@ import { AddFCardNo1777800000002 } from './database/migrations/1777800000002-Add
         connection: {
           host: cfg.get<string>('REDIS_HOST', 'localhost'),
           port: cfg.get<number>('REDIS_PORT', 6379),
+          username: cfg.get<string>('REDIS_USERNAME') || undefined,
+          password: cfg.get<string>('REDIS_PASSWORD') || undefined,
+          tls: cfg.get<string>('REDIS_TLS') === 'true' ? {} : undefined,
         },
       }),
     }),
