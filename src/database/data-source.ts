@@ -22,6 +22,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'constitution_defender',
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
   entities: [User, Voter, AppSettings],
   migrations: ['src/database/migrations/*.ts'],
   migrationsTableName: 'typeorm_migrations',

@@ -32,6 +32,7 @@ import { AddFCardNo1777800000002 } from './database/migrations/1777800000002-Add
         username: cfg.get<string>('DB_USER', 'postgres'),
         password: cfg.get<string>('DB_PASSWORD', 'postgres'),
         database: cfg.get<string>('DB_NAME', 'constitution_defender'),
+        ssl: cfg.get<string>('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
         entities: [User, Voter, AppSettings],
         synchronize: false,
         migrations: [InitialSetup1777800000000, AddSheetRowIndex1777800000001, AddFCardNo1777800000002],
